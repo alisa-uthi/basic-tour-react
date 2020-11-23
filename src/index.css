@@ -1,13 +1,87 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: bisque;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.header {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+hr {
+  width: 5%;
+  margin-bottom: 50px;
+  text-align: center;
+  border: 2px solid rgb(84, 127, 247);
+}
+.tour-card {
+  margin: 30px auto;
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width: 768px) {
+  .tour-card {
+    width: 80vw;
+  }
+  hr {
+    width: 20%;
+  }
+}
+.tour-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.tour-card article {
+  padding: 20px 30px;
+}
+.tour-card h1 {
+  margin-top: 0;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+.tour-card .price {
+  background-color: rgb(217, 224, 245);
+  color: rgb(93, 130, 231);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+.read-more-less--more,
+.read-more-less--less {
+  color: rgb(84, 127, 247);
+  font-weight: 200;
+  margin-right: 5px;
+}
+.tour-card .description {
+  color: grey;
+}
+.btn {
+  display: block;
+  width: 50%;
+  text-transform: uppercase;
+  color: red;
+  padding: 5px;
+  margin: 20px auto 0 auto;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 3px;
+  outline: none;
 }

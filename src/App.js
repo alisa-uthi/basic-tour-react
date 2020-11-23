@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { data } from "./data";
+import React, { useState } from "react";
+import ReactReadMoreReadLess from "react-read-more-read-less";
 
-function App() {
+const App = () => {
+  const [tours, setTours] = useState(data);
+
+  const removeTour = (id) => {
+    let newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="header">Our Tours</h1>
+      <hr />
+      {tours.map((tour) => {
+        const { id, imgUrl, title, price, desc } = tour;
+        return (
+          <div key={id} className="tour-card">
+            <img src={imgUrl} alt={title} loading="lazy" />
+            <article>
+              <h1>
+                {title}
+                <span className="price">{price}</span>
+              </h1>
+              <span className="description">
+                <ReactReadMoreReadLess
+                  charLimit={200}
+                  readMoreText={"Read more"}
+                  readLessText={"Show less"}
+                  readMoreClassName="read-more-less--more"
+                  readLessClassName="read-more-less--less"
+                >
+                  {desc}
+                </ReactReadMoreReadLess>
+              </span>
+              <button className="btn" onClick={() => removeTour(id)}>
+                not interested
+              </button>
+            </article>
+          </div>
+        );
+      })}
     </div>
   );
-}
+};
 
 export default App;
